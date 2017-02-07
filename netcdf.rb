@@ -64,8 +64,6 @@ class Netcdf < Formula
     ENV.prepend_path 'PATH', bin
     ENV.prepend 'CPPFLAGS', "-I#{include}"
     ENV.prepend 'LDFLAGS', "-L#{lib}"
-    ENV.prepend 'CPPFLAGS', "-I#{Formula["hd5@1.8"].lib}"
-    ENV.prepend 'LDFLAGS', "-L#{Formula["hd5@1.8"].lib}"
 
     resource('cxx-compat').stage do
       system './configure', *common_args
