@@ -6,7 +6,7 @@ class ParallelNetcdf < Formula
   sha256 "a79e8bfebde5baaa17470ff4425cbdcf99bd3cd265efdf3a8aedeca91c057463"
 
   depends_on :x11 # if your formula requires any X11/XQuartz components
-  depends_on "netcdf" => "enable-fortran"
+  depends_on "jn4snz/mpas/netcdf" => "enable-fortran"
   depends_on 'gcc@4.8'
 
   def install
