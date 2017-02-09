@@ -6,14 +6,15 @@ class ParallelNetcdf < Formula
   sha256 "a79e8bfebde5baaa17470ff4425cbdcf99bd3cd265efdf3a8aedeca91c057463"
 
   depends_on :x11 # if your formula requires any X11/XQuartz components
-  depends_on "pwolfram/mpas/netcdf" => "enable-fortran"
+  depends_on "netcdf" => "enable-fortran"
+  depends_on 'gcc@4.8'
 
   def install
     ENV.deparallelize  # if your formula fails when building in parallel
     #puts ENV['FC']
     #ENV['FC'] = "ifort"
-    ENV['FC'] = "/usr/local/bin/gfortran"
-    ENV['CC'] = "/usr/bin/gcc"
+    ENV['FC'] = "/usr/local/bin/gfortran-4.8"
+    ENV['CC'] = "/usr/local/bin/gcc-4.8"
     ENV['MPIF77'] = "/usr/local/bin/mpif77"
     ENV['MPIF90'] = "/usr/local/bin/mpif90"
     ENV['MPICC'] = "/usr/local/bin/mpicc"

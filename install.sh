@@ -1,16 +1,12 @@
 #!/usr/bin/env bash
 
-if [[ "$unamestr" == "Darwin" ]]; then
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-else
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-  echo 'Must add "$HOME/.linuxbrew/bin:$PATH" to $PATH'
-  export PATH=$HOME/.linuxbrew/bin:$PATH
-fi
-
 brew tap homebrew/science
-brew tap pwolfram/mpas
+brew tap jn4snz/mpas
 
-brew install pwolfram/mpas/netcdf --enable-fortran --enable-cxx-compat
-brew install pwolfram/mpas/parallel-netcdf
-brew install pwolfram/mpas/pio
+brew install gcc@4.8
+export FC=/usr/local/bin/gfortran-4.8
+brew install hdf5@1.8
+brew install mpich
+brew install jn4snz/mpas/netcdf --enable-fortran --enable-cxx-compat
+brew install jn4snz/mpas/parallel-netcdf
+brew install jn4snz/mpas/pio
